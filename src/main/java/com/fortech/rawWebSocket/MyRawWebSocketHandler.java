@@ -1,7 +1,8 @@
-package com.fortech;
+package com.fortech.rawWebSocket;
 
 import java.io.IOException;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -17,9 +18,9 @@ public class MyRawWebSocketHandler extends TextWebSocketHandler {
 
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
-		TextMessage msg = new TextMessage("handle - " + session.getId() + " - payload :" +message.getPayload());
+		TextMessage msg = new TextMessage("handled - " + session.getId() + " - payload :" +message.getPayload());
 		System.out.println(msg.getPayload());
-		session.sendMessage(message);
+		session.sendMessage(msg);
 	}
 
 	@Override
