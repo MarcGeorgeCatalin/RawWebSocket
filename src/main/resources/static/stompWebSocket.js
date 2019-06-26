@@ -10,7 +10,7 @@ $(document).ready(function() {
 		stompClient = Stomp.over(socket);
 		stompClient.connect({}, function(frame) {
 			stompClient.subscribe('/topic/public.messages', function(response) {
-				renderPublicMessages(response.body);
+				renderMessages(response.body);
 			});
 		});
 	}
